@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/0bbf47f20a.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+      <style>
+          @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+          @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+          @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+          @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+          @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+        body{
+            background-color: rgba(237,235,245,0.5);
+        }
+        .sidenav {
+            height: 100vh;
+            width: 260px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .mobile-sidenav {
+            height: 100vh;
+            width: 260px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding-top: 20px;
+            display: none;
+        }  
+        .main {
+            margin-left: 260px; /* Same as the width of the sidenav */
+            font-size: 28px; /* Increased text to enable scrolling */
+        }
+        .logo h1{
+            width: 100%;
+/*            background-color: fuchsia;*/
+            position: absolute;
+            margin: 0;
+            left: 50%;
+            transform: translateX(-50%);
+/*
+            margin-left: -50px;
+            line-height: 80px;
+*/
+            font-family: 'Lobster', cursive;
+            pointer-events: none;
+            line-height: 90px;
+        }
+        .logo h1 span{
+            position: absolute;
+            font-size: .4em;
+            margin-top: 30px;
+            left: 106px;
+            color: rgba(0,0,0,.5);
+            font-family: 'Abel', sans-serif;
+            pointer-events: none;
+        }
+        .logo h1 img{
+            width: 60px;
+            pointer-events: none;
+            margin-top: 15px;
+            margin-left: -20px;
+        }
+        .logo{
+/*            background-color: antiquewhite;*/
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100px;
+            text-align: center;
+        }
+        .user-notice{
+            width: 100%;
+            height: 100px;
+            background-color: #1F2832;
+            padding: 10px;
+        }
+        .user-notice h1{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            color: #fff;
+            font-family: 'Cabin', sans-serif;
+            font-size: 1em;
+            padding-left: 20px;
+        }
+        .mobile-header{
+            width: 100%;
+            height: 90px;
+            background-color: #fff;
+            display: none;
+        }  
+        .mobile-header .mobile-logo{
+            padding: 0;
+            height: 90px;
+            line-height: 90px;
+/*            background-color: fuchsia;*/
+            position: absolute;
+            margin: 0;
+            left: 50%;
+            transform: translateX(-50%);
+/*
+            margin-left: -50px;
+            line-height: 80px;
+*/
+            pointer-events: none;
+        }
+        .mobile-header h1{
+            width: 100%;
+/*            background-color: fuchsia;*/
+
+/*
+            margin-left: -50px;
+            line-height: 80px;
+*/
+            font-family: 'Lobster', cursive;
+            pointer-events: none;
+            line-height: 80px;
+            font-size: 1.2em;
+        }
+        .mobile-header h1 span{
+            position: absolute;
+            font-size: .4em;
+            color: rgba(0,0,0,.5);
+            font-family: 'Abel', sans-serif;
+            pointer-events: none;
+            top: 25px;
+            left: 57%;
+            transform: translateX(-50%);
+        }
+        .mobile-header h1 img{
+            margin-top: 10px;
+            width: 55px;
+            pointer-events: none;
+        }
+        .menu-icon{
+            position: absolute;
+            line-height: 90px;
+            left: 10px;
+            opacity: .8;
+            cursor: pointer;
+        }
+        .menu-icon img{
+            width: 55px;
+        }
+        .close-menu{
+            position: absolute;
+            right: 10px;
+            transform: rotate(180deg);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .close-menu img{
+            width: 60px;
+            opacity: .8;
+            display: none;
+        }
+        .menu{
+            margin-top: 110px;
+            margin-left: 40px;
+        }
+        p{
+            margin: 0;
+        }
+        .menu-items .item{
+            /*            border: 1px solid;*/
+            padding: 10px;
+            cursor: pointer;
+            /*            color: rgba(0,0,0,.6);*/
+            font-family: 'Dosis', sans-serif;
+            font-size: 1.2em;
+        }
+        .menu-items .item img{
+            width: 30px;
+            margin-right: 8px;
+            pointer-events: none;
+            /*            opacity: .7;*/
+        }
+        .menu-items .item .notification{
+            /*            background-color: rgba(0,0,0,.2);*/
+            position: absolute;
+            /*            top: -25px;*/
+            /*            left: 95%;*/
+            /*            transform: translateX(-50%);*/
+            margin-top: -25px;
+            right: 60px;
+            background-color: rgba(0,0,0,.4);
+            color: #fff;
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            display: none;
+        }
+          .main-content{
+              padding: 40px;
+              font-family: 'Quicksand', sans-serif;
+          }
+          
+          .add-task-wrap{
+            width: 90%;
+            border-radius: 20px;
+            margin: auto;
+            background-color: #fff;/*RGBA(64, 78, 95, 1.00)*/
+            padding: 10px;
+            -webkit-box-shadow: 0px 10px 50px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 10px 50px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 10px 50px -13px rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        .add-task-wrap .task-bar{
+            width: 100%;
+            height: 60px;
+        }
+        .add-task-wrap .task-bar img{
+            position: absolute;
+            width: 50px;
+            margin-top: 5px;
+            margin-left: 0px;
+            cursor: pointer;
+            opacity: .8;
+        }
+        #task-form{
+/*            display: none;*/
+        }
+        input{
+            height: 60px;
+            width: 100%;
+            padding-left: 60px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: #404E5F;
+            font-size: .9em;
+        }
+        #task-form input::placeholder{
+            color: grey;
+        }
+        .filter-by{
+            margin-bottom: 80px;      
+        }
+        .filter-by span{
+            position: absolute;
+            right: 10px;
+            height: 40px;
+            width: 100px;
+            border-bottom: 2px solid;
+            line-height: 40px;
+            cursor: pointer;
+            padding-left: 10px;
+            color: rgba(0,0,0,.6);
+            font-size: .8em;
+        }
+        .filter-by span i{
+            position: absolute;
+            line-height: 45px;
+            right: 10px;
+            color: rgba(0,0,0,.6);
+            font-size: .8em;
+            transform: rotate(0deg);
+            transition: .4s all ease;
+        }  
+        
+        .fa-chevron-down.rotated {
+            transition: .2s all ease;
+            transform: rotate(180deg);
+            -ms-transform: rotate(180deg); /* IE 9 */
+            -moz-transform: rotate(180deg); /* Firefox */
+            -webkit-transform: rotate(180deg); /* Safari and Chrome */
+            -o-transform: rotate(180deg); /* Opera */
+        } 
+        .filter-options{
+            width: 200px;
+            background-color: aliceblue;
+            position: absolute;
+            right: 40px;
+            margin-top: 50px;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .filter-options button{
+            cursor: pointer;
+            color: rgba(0,0,0,.8);
+            display: block;
+            width: 100%;
+            background-color: #fff;
+            border-bottom: 2px solid rgba(0,0,0,.5);
+            font-family: 'Dosis', sans-serif;
+            font-size: .7em;
+            border-left: 2px solid rgba(0,0,0,.5);
+            border-right: 2px solid rgba(0,0,0,.5);
+            text-align: left;
+            padding-left: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            outline: none;
+        }  
+        .filter-options button:first-child{
+            border-top: 2px solid rgba(0,0,0,.5);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        } 
+        .filter-options button:last-child{
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }  
+        .filter-options.fade-in{
+            -webkit-animation: fade-in-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            visibility: visible;
+        }
+          
+        @media only screen and (min-height: 600px){
+            .menu{
+            border-radius: 10px;
+            margin-top: 30px;
+            width: 100%;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        }
+        @media only screen and (max-width: 800px){
+            .close-menu img{display: block;}
+            .mobile-header{
+                display: block;
+                position: fixed;
+                z-index: 1000;
+                top: 0;
+                -webkit-box-shadow: 0px 10px 50px -13px rgba(0,0,0,0.2);
+                -moz-box-shadow: 0px 10px 50px -13px rgba(0,0,0,0.2);
+                box-shadow: 0px 10px 50px -13px rgba(0,0,0,0.2);
+            }
+            .sidenav{
+                display: none;
+            }
+            .mobile-sidenav{
+                width: 100%;
+                display: none;
+                z-index: 1001;
+            }
+            .main{
+                margin-top: 90px;
+                margin-left: 0px;
+            }
+            .menu{
+                width: 250px;
+                margin: auto;
+                margin-top: 100px;
+/*                background-color: fuchsia;*/
+            }
+            .menu-items .item:first-child{
+                border-top: 2px solid;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+            .menu-items .item:last-child{
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            .menu-items .item{
+                padding: 20px;
+                border-left: 2px solid;
+                border-right: 2px solid;
+                border-bottom: 2px solid;
+            }
+            .menu-items .item .notification{
+                position: relative;
+                left: 90%;
+                transform: translateX(-50%);
+            }
+            .logo h1 span{
+                position: absolute;
+                font-size: .4em;
+                margin-top: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: rgba(0,0,0,.5);
+                font-family: 'Abel', sans-serif;
+            }
+          }  
+
+        @-webkit-keyframes fade-in-top {
+          0% {
+            -webkit-transform: translateY(-50px);
+                    transform: translateY(-50px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        @keyframes fade-in-top {
+          0% {
+            -webkit-transform: translateY(-50px);
+                    transform: translateY(-50px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+            opacity: 1;
+          }
+        }
+          
+      </style>
+  </head>
+  <body>
+      <div class="sidenav">
+          <div class="close-menu">
+              <img src="images/back.png">
+          </div>
+          <div class="logo">
+              <h1><img src="images/done.png">Taskd<span>byAnup</span></h1>
+          </div>
+          <div class="menu">
+              <div class="menu-items">
+                  <div class="item"><p><img src="images/list.png">Dashboard </p><div class="notification">3</div></div>
+                  <div class="item"><p><img src="images/completed.png">Completed </p><div class="notification">1</div></div>
+                  <div class="item"><p><img src="images/wrong.png" style="width: 32px;margin-left: -1px;">Missed </p><div class="notification">2</div></div>
+                  <div class="item"><p><img src="images/profile.png">Profile </p><div class="notification">1</div></div>
+              </div>
+          </div>
+      </div>
+      <div class="mobile-sidenav">
+          <div class="close-menu">
+              <img src="images/back.png">
+          </div>
+          <div class="logo">
+              <h1><img src="images/done.png">Taskd<span>byAnup</span></h1>
+          </div>
+          <div class="menu">
+              <div class="menu-items">
+                  <div class="item"><p><img src="images/list.png">Dashboard </p><div class="notification">3</div></div>
+                  <div class="item"><p><img src="images/completed.png">Completed </p><div class="notification">1</div></div>
+                  <div class="item"><p><img src="images/wrong.png" style="width: 32px;margin-left: -1px;">Missed </p><div class="notification">2</div></div>
+                  <div class="item"><p><img src="images/profile.png">Profile </p><div class="notification">1</div></div>
+              </div>
+          </div>
+      </div>
+      <div class="main">
+            <div class="mobile-header">
+              <div class="menu-icon">
+                  <img src="images/menu.png">
+              </div>
+              <div class="mobile-logo">
+                  <h1><img src="images/done.png">Taskd<span>byAnup</span></h1>
+              </div>
+          </div>
+            <div class="user-notice">    
+              <h1>Good <span id="greeting"></span> User</h1>
+            </div>
+            
+          <div class="main-content">
+            <div class="add-task-wrap">
+                <div class="task-bar">
+                  <form action="" id="task-form">
+                      <img src="images/add.png" id="add-task">
+                      <input type="text" id="task-input" placeholder="Create Task">
+                  </form>
+                  <form action="" id="priority-form">
+        <!--                                  <img src="images/add.png" id="add-task">-->
+                  <input type="text" id="priority-input" placeholder="Priority">
+                  </form>
+            </div>
+            </div>   
+              <div class="filter-by">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <span>Sort <i class="fas fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="filter-options">
+                      <button>Recent</button>
+                      <button>Oldest</button>
+                      <button>High Priority</button>
+                      <button>Low Priority</button>
+                  </div>
+                </div>
+              <p>This sidebar is of full height (100%) and always shown.</p>
+          <p>Scroll down the page to see the result.</p>
+          <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+          <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+          <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+          <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+          <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+          <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+          </div>
+      </div>
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="date.js"></script>
+      <script>
+//          $(window).on('resize', function() {
+////              $('.menu').css("display","none")
+//              $('.menu').css("display","block")
+//              if($('.menu').css("display","none")){
+//                  $('.menu').css("display","block")
+//              }else{
+//                  $('.menu').css("display","none")
+//              }
+//          })
+              $('.menu-icon').click(function(){
+                  $('.mobile-sidenav').fadeIn(200)
+              })
+              $('.close-menu, .mobile-sidenav .item').click(function(){
+                  $('.mobile-sidenav').fadeOut(200)
+              })
+          $('.filter-by').click(function(){
+              $('.fa-chevron-down').toggleClass('rotated')
+              $('.filter-options').toggleClass('fade-in')
+          })
+          
+      </script>
+  </body>
+</html>
